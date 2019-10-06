@@ -1,24 +1,88 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  list-style:none;
+  text-decoration:none;
+  font-family:'Josefin Sans',sans-serif;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.wrapper{
+  display:flex;
+  position:relative;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+#sidebar{
+  position:fixed;
+  width:200px;
+  height:100%;
+  background: #37474F;
+  color: #fff;
+  padding:30px 0;
+  transition:all 1000ms linear;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+#sidebar h2 {
+  color:#fff;
+  text-transform:uppercase;
+  text-align:center;
+  margin-bottom:20px;
 }
+
+#sidebar.active {
+  left: 0px;
+}
+
+#sidebar ul li {
+  color:rgba(230,230,230,0.9);
+  list-style:none;
+  padding: 15px 10px;
+  border-bottom: 1px solid rgba(100,100,100,0.3);
+}
+#sidebar ul li a {
+  color:#bdb8d7;
+  display:block;
+}
+
+#sidebar ul li a .fas {
+  width: 25px;
+}
+
+#sidebar ul li:hover {
+  color: #0366d6;
+  background: #121C22;
+}
+#sidebar ul li:hover a {
+  background: #121C22;
+}
+
+#sidebar .toggle-btn {
+  position:absolute;
+  left:230px;
+  top:20px;
+}
+
+#main_content {
+  width:100%;
+}
+
+#main_content #header{
+  padding:20px;
+  background: #fff;
+  color: #717171;
+  border-bottom:1px solid #e0e4e8;
+}
+
+#sidebar .toggle-btn span {
+  display:block;
+  width:30px;
+  height:5px;
+  background:#151719;
+  margin:5px 0px;
+}
+
+a .navbar-brand img {
+    padding:0;
+    margin:0;
+}
+

@@ -1,0 +1,35 @@
+﻿.container-fluid {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.bg-light {
+    background-color: #37474F !important;
+    color: #fff;
+}
+
+.navbar-brand {
+    display: inline-block;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: 0;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+.navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show > .nav-link {
+    color: rgba(238, 229, 229, 0.9);
+}
+.navbar-light .navbar-nav .nav-link {
+    color: red;
+}
+.navbar {
+    padding-left:0;
+    padding-top:0;
+    padding-bottom:0;
+    padding-right:5px;
+}
