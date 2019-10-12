@@ -64,6 +64,8 @@
 
 #main_content {
   width:100%;
+  margin-left:250px;
+  margin-top:30px;
 }
 
 #main_content #header{

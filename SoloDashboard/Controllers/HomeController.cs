@@ -15,7 +15,7 @@ namespace SoloDashboard.Web.Controllers
         {
             var jobs = uow.scheduledJobsTestData.GetScheduleJobs();
 
-            return View();
+            return View(jobs);
         }
         public ActionResult Index()
         {

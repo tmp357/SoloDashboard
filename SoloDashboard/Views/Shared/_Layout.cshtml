@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Scripts.Render("~/bundles/modernizr")
-
+    
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Font Awesome JS -->
@@ -18,7 +18,7 @@
 <body>
 
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -57,29 +57,7 @@
 
         </div>
     </div>
-    @*<div class="wrapper">      
-        
-        <div id="sidebar">
-            <div class="sidebar-header">
-                <img src="~/Images/PaceSoloLogo.PNG" width="201" />
-            </div>
-            <div class="toggle-btn" onclick="toggleSidebar()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul>
-                <li><a href="#"><i class="fas fa-home"></i>&nbsp;&nbsp;Home</a></li>
-                <li><a href="#"><i class="fas fa-barcode"></i>&nbsp;&nbsp;Scanning</a></li>
-                <li><a href="#"><i class="fas fa-camera"></i>&nbsp;&nbsp;Finishing</a></li>
-            </ul>
-        </div>
-        <div id="main_content">
-            @RenderBody()
-            <hr />
-            
-        </div>
-    </div>*@    
+    
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

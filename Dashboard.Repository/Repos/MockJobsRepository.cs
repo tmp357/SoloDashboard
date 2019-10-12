@@ -47,9 +47,13 @@ namespace Dashboard.Repository.Repos
                     job.description = record[19] != null ? record[19].Trim() : "NA";
                     job.arsalesname = record[20] != null ? record[20].Trim() : "NA";
                     job.arcustname = record[21] != null ? record[21].Trim() : "NA";
-                }                
+                }
 
-                scheduledJobs.Add(job);
+                if (job != null)
+                {
+                    scheduledJobs.Add(job);
+                }
+                
 
                 counter++;
             }

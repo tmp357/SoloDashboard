@@ -1,8 +1,16 @@
-﻿
+﻿@model IEnumerable<SoloDashboard.Entities.Models.Job>
+
 @{
     ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Home/_myLayout.cshtml";
 }
 
+<div>
+    @foreach (var item in Model)
+    {
+        @Html.Partial("_ScheduleJob", item)
+    }
+</div>
 
 
 <!-- jQuery CDN - Slim version (=without AJAX) -->
