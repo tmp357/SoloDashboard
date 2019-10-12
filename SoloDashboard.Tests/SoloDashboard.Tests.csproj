@@ -93,9 +93,21 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SoloDashboard\SoloDashboard.csproj">
+    <ProjectReference Include="..\Dashboard.Repository\Dashboard.Repository.csproj">
+      <Project>{C406234A-1423-4A13-A99D-66A3C10F93A2}</Project>
+      <Name>Dashboard.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SoloDashboard.Interfaces\SoloDashboard.Interfaces.csproj">
+      <Project>{0CE0E804-1129-417B-81ED-BF26CFD84773}</Project>
+      <Name>SoloDashboard.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SoloDashboard.Models\SoloDashboard.Entities.csproj">
+      <Project>{7A9BFC39-30C5-4599-B291-A2AE4B945C6F}</Project>
+      <Name>SoloDashboard.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SoloDashboard\SoloDashboard.Web.csproj">
       <Project>{7497467A-9CE0-44B1-8849-BCF28D48678F}</Project>
-      <Name>SoloDashboard</Name>
+      <Name>SoloDashboard.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

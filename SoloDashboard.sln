@@ -3,9 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoloDashboard", "SoloDashboard\SoloDashboard.csproj", "{7497467A-9CE0-44B1-8849-BCF28D48678F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoloDashboard.Web", "SoloDashboard\SoloDashboard.Web.csproj", "{7497467A-9CE0-44B1-8849-BCF28D48678F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoloDashboard.Tests", "SoloDashboard.Tests\SoloDashboard.Tests.csproj", "{62D81D0E-603E-486F-8920-042220A33971}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoloDashboard.Data", "SoloDashboard.Data\SoloDashboard.Data.csproj", "{62FF61FA-B27E-4C7E-B4EC-8292C6EED2E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoloDashboard.Entities", "SoloDashboard.Models\SoloDashboard.Entities.csproj", "{7A9BFC39-30C5-4599-B291-A2AE4B945C6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoloDashboard.Common", "SoloDashboard.Common\SoloDashboard.Common.csproj", "{5DC52B47-AA60-47C8-9BB5-8F6D220720D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoloDashboard.Interfaces", "SoloDashboard.Interfaces\SoloDashboard.Interfaces.csproj", "{0CE0E804-1129-417B-81ED-BF26CFD84773}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dashboard.Repository", "Dashboard.Repository\Dashboard.Repository.csproj", "{C406234A-1423-4A13-A99D-66A3C10F93A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +31,26 @@ Global
 		{62D81D0E-603E-486F-8920-042220A33971}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62D81D0E-603E-486F-8920-042220A33971}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62D81D0E-603E-486F-8920-042220A33971}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62FF61FA-B27E-4C7E-B4EC-8292C6EED2E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62FF61FA-B27E-4C7E-B4EC-8292C6EED2E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62FF61FA-B27E-4C7E-B4EC-8292C6EED2E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62FF61FA-B27E-4C7E-B4EC-8292C6EED2E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A9BFC39-30C5-4599-B291-A2AE4B945C6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A9BFC39-30C5-4599-B291-A2AE4B945C6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A9BFC39-30C5-4599-B291-A2AE4B945C6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A9BFC39-30C5-4599-B291-A2AE4B945C6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DC52B47-AA60-47C8-9BB5-8F6D220720D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DC52B47-AA60-47C8-9BB5-8F6D220720D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DC52B47-AA60-47C8-9BB5-8F6D220720D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DC52B47-AA60-47C8-9BB5-8F6D220720D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CE0E804-1129-417B-81ED-BF26CFD84773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CE0E804-1129-417B-81ED-BF26CFD84773}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CE0E804-1129-417B-81ED-BF26CFD84773}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CE0E804-1129-417B-81ED-BF26CFD84773}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C406234A-1423-4A13-A99D-66A3C10F93A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C406234A-1423-4A13-A99D-66A3C10F93A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C406234A-1423-4A13-A99D-66A3C10F93A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C406234A-1423-4A13-A99D-66A3C10F93A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

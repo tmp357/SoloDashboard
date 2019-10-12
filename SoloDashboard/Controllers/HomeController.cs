@@ -1,15 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using SoloDashboard.Repository.Contracts;
 using System.Web.Mvc;
 
-namespace SoloDashboard.Controllers
+namespace SoloDashboard.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IUnitOfWork uow;
+
+        public HomeController(IUnitOfWork uow)
+        {
+            this.uow = uow;
+        }       
         public ActionResult Dashboard()
         {
+            var jobs = uow.scheduledJobsTestData.GetScheduleJobs();
+
             return View();
         }
         public ActionResult Index()

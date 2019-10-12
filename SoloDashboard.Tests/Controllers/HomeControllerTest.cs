@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
+﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SoloDashboard;
-using SoloDashboard.Controllers;
+using Dashboard.Repository.Interfaces;
+using Dashboard.Repository.Repos;
 
 namespace SoloDashboard.Tests.Controllers
 {
@@ -13,42 +9,19 @@ namespace SoloDashboard.Tests.Controllers
     public class HomeControllerTest
     {
         [TestMethod]
-        public void Index()
+        public void GetTestData()
         {
-            // Arrange
-            HomeController controller = new HomeController();
+            //Arrange
+            IMockJobsRepository repo = new MockJobsRepository();
 
-            // Act
-            ViewResult result = controller.Index() as ViewResult;
+            //Act
+            var result = repo.GetScheduleJobs();
 
-            // Assert
-            Assert.IsNotNull(result);
+            //Asert
+            Assert.AreNotEqual(0, result.Count());
+
         }
 
-        [TestMethod]
-        public void About()
-        {
-            // Arrange
-            HomeController controller = new HomeController();
 
-            // Act
-            ViewResult result = controller.About() as ViewResult;
-
-            // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
-        }
-
-        [TestMethod]
-        public void Contact()
-        {
-            // Arrange
-            HomeController controller = new HomeController();
-
-            // Act
-            ViewResult result = controller.Contact() as ViewResult;
-
-            // Assert
-            Assert.IsNotNull(result);
-        }
     }
 }
