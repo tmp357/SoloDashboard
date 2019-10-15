@@ -5,11 +5,20 @@ using SoloDashboard.Entities.Models;
 using System.Linq.Expressions;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 
 namespace Dashboard.Repository.Repos
 {
     public class MockJobsRepository : IMockJobsRepository
     {
+        public IEnumerable<Job> Find(Expression<Func<Job, bool>> predicate)
+        {
+            var jobs = GetScheduleJobs().AsQueryable();
+            var result = jobs.Where(predicate).ToList();
+
+            return result;
+        }
+
         public IEnumerable<Job> GetScheduleJobs()
         {
             string[] readText = File.ReadAllLines(@"C:\Visual Studio 2015\Projects\SoloDashboard\Dashboard.Repository\TestData\data-1570538698798r3.tab");
@@ -59,6 +68,39 @@ namespace Dashboard.Repository.Repos
             }
 
             return scheduledJobs;
+        }
+
+        public Expression<Func<Job, bool>> GetDynamicQueryWithExpresionTrees(string propertyName, string value)
+        {
+            //x =>
+            var param = Expression.Parameter(typeof(Job), "x");
+            //val ("Curry")
+            var valExpression = Expression.Constant(value, typeof(string));
+            //Field or Property Name
+            var column = Expression.PropertyOrField(param, propertyName);
+            //x.LastName == "Curry"
+            BinaryExpression body = Expression.Equal(column, valExpression);
+            //x => x.LastName == "Curry"
+            var final = Expression.Lambda<Func<Job, bool>>(body, param);
+            //compiles the expression tree to a func delegate
+            return  final;    
+        }
+
+        private Func<Job, bool> GetDynamicQueryWithExpresionTrees2(string propertyName, string val)
+        {
+            var param = Expression.Parameter(typeof(Job), "x");
+            var member = Expression.Property(param, propertyName);
+            var propertyType = ((PropertyInfo)member.Member).PropertyType;
+            var converter = System.ComponentModel.TypeDescriptor.GetConverter(propertyType);
+
+            if (!converter.CanConvertFrom(typeof(string)))
+                throw new NotSupportedException();
+
+            //will give the integer value if the string is integer
+            var propertyValue = converter.ConvertFromInvariantString(val);
+            var constant = Expression.Constant(propertyValue);
+
+            return null;
         }
     }
 }

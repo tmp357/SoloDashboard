@@ -1,4 +1,8 @@
-﻿using SoloDashboard.Repository.Contracts;
+﻿using SoloDashboard.Entities.Models;
+using SoloDashboard.Repository.Contracts;
+using System;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Web.Mvc;
 
 namespace SoloDashboard.Web.Controllers
@@ -13,9 +17,17 @@ namespace SoloDashboard.Web.Controllers
         }       
         public ActionResult Dashboard()
         {
-            var jobs = uow.scheduledJobsTestData.GetScheduleJobs();
+            var jobs = uow.DbContextJobsTestData.GetScheduleJobs();
 
             return View(jobs);
+        }
+
+        public ActionResult DashboardFiltered(string CompanyID, string SearchColumn)
+        {
+            var exp = uow.DbContextJobsTestData.GetDynamicQueryWithExpresionTrees(SearchColumn, CompanyID);
+            var job = uow.DbContextJobsTestData.Find(exp);
+
+            return View("Dashboard", job);
         }
         public ActionResult Index()
         {

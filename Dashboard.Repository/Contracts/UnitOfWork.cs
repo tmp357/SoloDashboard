@@ -9,14 +9,14 @@ namespace SoloDashboard.Repository.Contracts
         //private readonly ConnectionStringManager conn;
         public UnitOfWork()
         {
-            scheduledJobs = new ScheduleJobsRepository();
-            scheduledJobsTestData = new MockJobsRepository();
+            DbContextJobs = new ScheduleJobsRepository();
+            DbContextJobsTestData = new MockJobsRepository();
         }
 
 
-        public IScheduleJobsRepository scheduledJobs { get; }
+        public IScheduleJobsRepository DbContextJobs { get; }
 
-        public IMockJobsRepository scheduledJobsTestData { get; }
+        public IMockJobsRepository DbContextJobsTestData { get; }
         
 
 

@@ -5,7 +5,7 @@ namespace SoloDashboard.Repository.Contracts
 {
     public interface IUnitOfWork : IDisposable
     {
-        IScheduleJobsRepository scheduledJobs { get; }
-        IMockJobsRepository scheduledJobsTestData { get; }
+        IScheduleJobsRepository DbContextJobs { get; }
+        IMockJobsRepository DbContextJobsTestData { get; }
     }
 }
