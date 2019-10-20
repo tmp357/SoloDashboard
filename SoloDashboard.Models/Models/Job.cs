@@ -10,10 +10,13 @@ namespace SoloDashboard.Entities.Models
 {
     public class Job
     {
+        private string _jobCompletionStatus = "";
+
         [Display(Name = "Remaining Time")]
         public string remaingtime { get; set; }
         public string sysdescription { get; set; }
         public string armasterid { get; set; }
+        [Display(Name = "Csr Notes")]
         public string csrnotes { get; set; }
         public string taskstatus { get; set; }
         [Display(Name = "Entry Date")]
@@ -38,8 +41,10 @@ namespace SoloDashboard.Entities.Models
         public string ccdescription2 { get; set; }
         [Display(Name = "Status")]
         public string ccstatus { get; set; }
+        [Display(Name = "Csr Name")]
         public string arcsrname { get; set; }
         public string description { get; set; }
+        [Display(Name = "Sales Person")]
         public string arsalesname { get; set; }
         [Display(Name = "Customer Name")]
         public string arcustname { get; set; }
@@ -59,5 +64,30 @@ namespace SoloDashboard.Entities.Models
         [Display(Name = "Proof Approved Date")]
         public string approvedDate { get; set; }
         public string finishdate { get; set; }
+
+        public string jobCompletionStatus
+        {
+            get
+            {
+                if (DateTime.Now <= ccpromisedate)
+                {
+                    _jobCompletionStatus = "bg-success";
+                }
+                else if (ccpromisedate.Value.ToShortDateString() == DateTime.Now.ToShortDateString())
+                {
+                    _jobCompletionStatus = "bg-info";
+                }
+                else if (DateTime.Now >= ccpromisedate)
+                {
+                    _jobCompletionStatus = "bg-warning";
+                }
+                else
+                {
+                    _jobCompletionStatus = "bg-light";
+                }
+
+                return _jobCompletionStatus;
+            }           
+        }
     }
 }

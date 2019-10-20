@@ -30,3 +30,9 @@
 .job-quantity-section {
     padding-bottom:0px;
 }
+.notes-description {
+    border-bottom: 1px solid green;
+}
+.cardbody-custom {
+    padding-top:0px;
+}
