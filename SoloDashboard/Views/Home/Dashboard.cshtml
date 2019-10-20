@@ -1,11 +1,20 @@
 ﻿@model IEnumerable<SoloDashboard.Entities.Models.Job>
 
 @{
-    ViewBag.Title = "Dashboard";
     Layout = "~/Views/Home/_myLayout.cshtml";
+    
 }
-
+<title>@ViewBag.Title</title>
 <div>
+    <div class="row">
+        <div class="col-md-6">
+            <h2><span class="badge badge-pill badge-info">Total Records Returned: @Model.Count()</span></h2>
+        </div>
+        <div class="col-md-6" style="text-align:right;">
+            <h2><span class="badge badge-pill badge-info">@ViewBag.Title</span></h2>
+        </div>
+    </div>
+    
     @foreach (var item in Model)
     {
         @Html.Partial("_ScheduleJob", item)

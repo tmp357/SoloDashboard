@@ -1,7 +1,32 @@
-﻿.navbar {
+﻿body {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.navbar {
     background: #37474F;
 }
 
 .body-content {
-    margin-top:105px;
+    margin-top:85px;
+}
+
+.fa-building {
+    color:red;
+    padding-right:10px;
+}
+.fa-calendar {
+    color:forestgreen;
+    padding-right:10px;
+}
+
+.job-card {
+    padding-left:0px;
+    padding-right:0px;
+}
+.job-critical-dates {
+    padding-bottom:4px;
+    border-bottom: 1px solid #f3eeed;
+}
+.job-quantity-section {
+    padding-bottom:0px;
 }

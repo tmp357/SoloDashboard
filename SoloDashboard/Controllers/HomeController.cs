@@ -18,15 +18,16 @@ namespace SoloDashboard.Web.Controllers
         public ActionResult Dashboard()
         {
             var jobs = uow.DbContextJobsTestData.GetScheduleJobs();
-
+            ViewBag.Title = "All Printflow Activity";
             return View(jobs);
         }
 
-        public ActionResult DashboardFiltered(string CompanyID, string SearchColumn)
+        public ActionResult DashboardFiltered(string colummParam, string SearchColumn, string reportTitle = "All PrintFlow Schedule")
         {
-            var exp = uow.DbContextJobsTestData.GetDynamicQueryWithExpresionTrees(SearchColumn, CompanyID);
+            var exp = uow.DbContextJobsTestData.GetDynamicQueryWithExpresionTrees(SearchColumn, colummParam);
             var job = uow.DbContextJobsTestData.Find(exp);
 
+            ViewBag.Title = reportTitle;
             return View("Dashboard", job);
         }
         public ActionResult Index()

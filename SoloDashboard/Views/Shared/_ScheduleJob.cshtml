@@ -1,22 +1,92 @@
 ﻿@model SoloDashboard.Entities.Models.Job
 
 
+
 <div class="card mb-3 bg-light">
     <div class="card-header">
-        <ul class="nav nav-pills card-header-pills">
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Active</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-        </ul>
+        <div class="row">
+            <div class="col-md-5 job-card">
+                <div class="card border-light mb-3" style="width:100%;height:100%">                    
+                    <div class="card-header job-header" style="padding-bottom:8px;">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <img class="companyLogo" src=@Url.Content(Model.logo) width="90" height="45" />
+                            </div>
+                            <div class="col-md-11">
+                                <h3 class="card-title text-center"><i class="fas fa-building"></i>@Html.ActionLink(Model.arcustname, "DashboardFiltered", "Home", new { colummParam = Model.armasterid, SearchColumn = "armasterid", reportTitle = "Report listing all active jobs for " + Model.arcustname  }, new { target = "_blank" })</h3>
+                            </div>
+                        </div>                       
+                    </div>
+                    <div class="card-body text-dark">
+                        <h2 class="card-title">@Html.ActionLink(Model.ccmasterid, "DashboardFiltered", "Home", new { colummParam = Model.ccmasterid, SearchColumn = "ccmasterid", reportTitle = "Report showing Job #" + Model.ccmasterid }, new { target = "_blank" })</h2>                       
+                        <h4 class="card-title">@Html.ActionLink(Model.arcsrname, "DashboardFiltered", "Home", new { colummParam = Model.arcsrname, SearchColumn = "arcsrname", reportTitle = "Report listing jobs for " + Model.arcsrname}, new { target = "_blank" })</h4>
+                        <h3 class="card-title">@Html.ActionLink(Model.arsalesname, "DashboardFiltered", "Home", new { colummParam = Model.arsalesname, SearchColumn = "arsalesname", reportTitle = "Jobs grouped by salesperson: " + Model.arsalesname }, new { target = "_blank" })</h3>
+                    </div>
+                </div>                
+            </div>
+            <div class="col-md-4 job-card">
+                <div class="card border-light mb-3 job-card" style="width:100%;height:100%">
+                    <div class="card-header job-header">
+                        <div class="row job-quantity-section">
+                            <div class="col-md-5">
+                                <h3>@Html.DisplayNameFor(m => m.quantityordered):</h3>
+                            </div>
+                            <div class="col-md-3">
+                                <h3>@Html.DisplayFor(m => m.quantityordered)</h3>
+                            </div>
+                            <div class="col-md-3">
+                                <h4 class="card-title text-center">@Html.ActionLink(Model.description, "DashboardFiltered", "Home", new { colummParam = Model.description, SearchColumn = "description", reportTitle = Model.description + " jobs." }, new { target = "_blank" })</h4>
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="card-body text-dark">
+                        <p class="card-text"><h2>@Html.DisplayNameFor(m => m.ccdescription):</h2></p>
+                        <p class="card-text"><h3>@Html.DisplayName(Model.ccdescription)</h3></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 job-card">
+                <div class="card border-light mb-3 job-card" style="width:100%;height:100%">
+                    <div class="card-header job-header"><h3><i class="fas fa-calendar"></i>Critical Dates:</h3></div>
+                    <div class="card-body text-dark font-weight-bold">
+                        <div class="row job-critical-dates">
+                            <div class="col-md-6">
+                                <h5>@Html.DisplayNameFor(m => m.ccpromisedate):</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>@Html.DisplayFor(m => m.ccpromisedate)</h5>
+                            </div>
+                        </div>
+                        <div class="row job-critical-dates">
+                            <div class="col-md-6">
+                                <h5>@Html.DisplayNameFor(m => m.ccscheduledshipdate):</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>@Html.ActionLink(Model.ccscheduledshipdate, "DashboardFiltered", "Home", new { colummParam = Model.ccscheduledshipdate, SearchColumn = "ccscheduledshipdate", reportTitle = "Report Grouped by Scheduled Ship Date" }, new { target = "_blank" })</h5>
+                            </div>
+                        </div>
+                        <div class="row job-critical-dates">
+                            <div class="col-md-6">
+                                <h5>@Html.DisplayNameFor(m => m.earlieststartdate):</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>@Html.DisplayFor(m => m.earlieststartdate)</h5>
+                            </div>
+                        </div>
+                        <div class="row job-critical-dates">
+                            <div class="col-md-6">
+                                <h5>@Html.DisplayNameFor(m => m.approvedDate):</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>@Html.DisplayFor(m => m.approvedDate)</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="card-body">
-        <h5 class="card-title">@Html.ActionLink(Model.arcustname, "DashboardFiltered","Home",new { CompanyID = Model.armasterid, SearchColumn = "armasterid"},null)</h5>
         <p class="card-text">It's a broader card with text below as a natural lead-in to extra content. This content is a little longer.</p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
