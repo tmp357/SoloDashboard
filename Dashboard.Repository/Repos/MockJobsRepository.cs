@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using SoloDashboard.Models.Models;
 
 namespace Dashboard.Repository.Repos
 {
@@ -33,30 +34,7 @@ namespace Dashboard.Repository.Repos
 
                 if (counter > 0)
                 {
-                    //job = new Job();
-                    //job.sysdescription = record[0] != null? record[0].Trim() : "NA";
-                    //job.armasterid = record[1] != null ? record[1].Trim() : "NA";
-                    //job.csrnotes = record[2] != null ? record[2].Trim() : "NA";
-                    //job.Approved = record[3] != null ? record[3].Trim() : "NA";
-                    //job.remaingtime = record[4] != null ? record[4].Trim() : "NA";
-                    //job.taskstatus = record[5] != null ? record[5].Trim() : "NA";
-                    //job.ccdatesetup = record[6] != null ? record[6].Trim() : "NA";
-                    //job.ccscheduledshipdate = record[7] != null ? record[7].Trim() : "NA";
-                    //job.earlieststartdate = record[8] != null ? record[8].Trim() : "NA";
-                    //job.qtyshipped = record[9] != null ? record[9].Trim() : "NA";
-                    //job.arsalesid = record[10] != null ? record[10].Trim() : "NA";
-                    //job.jobordertype = record[11] != null ? record[11].Trim() : "NA";
-                    //job.ccmasterid = record[12] != null ? record[12].Trim() : "NA";
-                    //job.ccpromisedate = record[13] != null ? record[13].Trim() : "NA";
-                    //job.ccdescription = record[14] != null ? record[14].Trim() : "NA";
-                    //job.quantityordered = record[15] != null ? record[15].Trim() : "NA";
-                    //job.ccdescription2 = record[16] != null ? record[16].Trim() : "NA";
-                    //job.ccstatus = record[17] != null ? record[17].Trim() : "NA";
-                    //job.arcsrname = record[18] != null ? record[18].Trim() : "NA";
-                    //job.description = record[19] != null ? record[19].Trim() : "NA";
-                    //job.arsalesname = record[20] != null ? record[20].Trim() : "NA";
-                    //job.arcustname = record[21] != null ? record[21].Trim() : "NA";
-
+                    
                     job = new Job();
                     job.ccmasterid = record[0] != null ? record[0].Trim() : "NA";
                     job.systermsid = record[1] != null ? record[1].Trim() : "NA";
@@ -75,7 +53,9 @@ namespace Dashboard.Repository.Repos
                     job.finishdate = record[14] != null ? record[14].Trim() : "NA";
                     job.remaingtime = record[15] != null ? record[15].Trim() : "NA";
                     job.taskstatus = record[16] != null ? record[16].Trim() : "NA";
-                    
+                    job.jobparts = GetJobParts(job.ccmasterid.ToString());
+                    job.jobplan = GetJobPlan(job.ccmasterid.ToString());
+
                 }
 
                 if (job != null)
@@ -88,6 +68,77 @@ namespace Dashboard.Repository.Repos
             }
 
             return scheduledJobs;
+        }
+
+        public List<JobPart> GetJobParts(string ccmasterid)
+        {
+            string[] readText = File.ReadAllLines(@"C:\Visual Studio 2015\Projects\SoloDashboard\Dashboard.Repository\TestData\parts.csv");
+
+            List<JobPart> jobpart = new List<JobPart>();
+            int counter = 0;
+
+            foreach (var item in readText)
+            {
+                string[] record = item.Split('\t');
+                JobPart part = null;
+
+                if (counter > 0)
+                {
+                    part = new JobPart();
+                    part.ccmasterid = record[0] != null ? record[0].Trim() : "NA";
+                    part.ccjobpart = record[1] != null ? record[1].Trim() : "NA";
+                    part.componentdescription = record[2] != null ? record[2].Trim() : "NA";
+                    part.ccpartdesc = record[3] != null ? record[3].Trim() : "NA";
+                    part.ccpages = record[4] != null ? record[4].Trim() : "NA";
+                    part.finalsize = record[5] != null ? record[5].Trim() : "NA";
+                    part.flatsize = record[6] != null ? record[6].Trim() : "NA";
+                }
+
+                if (jobpart != null)
+                {
+                    jobpart.Add(part);
+                }
+                counter++;
+            }
+
+            return jobpart;
+        }
+
+        public List<JobPlan> GetJobPlan(string ccmasterid)
+        {
+            string[] readText = File.ReadAllLines(@"C:\Visual Studio 2015\Projects\SoloDashboard\Dashboard.Repository\TestData\JobPlan.csv");
+
+            List<JobPlan> jobplan = new List<JobPlan>();
+            int counter = 0;
+
+            foreach (var item in readText)
+            {
+                string[] record = item.Split('\t');
+                JobPlan plans = null;
+
+                if (counter > 0)
+                {
+                    plans = new JobPlan();
+                    plans.job = record[0] != null ? record[0].Trim() : "NA";
+                    plans.scheduledactivity = record[1] != null ? record[1].Trim() : "NA";
+                    plans.jcdescription = record[2] != null ? record[2].Trim() : "NA";
+                    plans.part = record[3] != null ? record[3].Trim() : "NA";
+                    plans.printflowform = record[4] != null ? record[4].Trim() : "NA";
+                    plans.startdate = record[5] != null ? record[5].Trim() : "NA";
+                    plans.enddate = record[6] != null ? record[6].Trim() : "NA";
+                    plans.name = record[7] != null ? record[7].Trim() : "NA";
+                    plans.previoustask = record[8] != null ? record[8].Trim() : "NA";
+                    plans.nexttask = record[9] != null ? record[9].Trim() : "NA";
+                }
+
+                if (plans != null)
+                {
+                    jobplan.Add(plans);
+                }
+                counter++;
+            }
+
+            return jobplan;
         }
 
         public Expression<Func<Job, bool>> GetDynamicQueryWithExpresionTrees(string propertyName, string value)

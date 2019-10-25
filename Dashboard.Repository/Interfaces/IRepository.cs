@@ -12,5 +12,6 @@ namespace Dashboard.Repository.Interfaces
         T GetById(int id);
         IEnumerable<T> GetAll();
         IEnumerable<T> Find(Expression<Func<T, bool>> predicate);
+        Expression<Func<T, bool>> GetDynamicQueryWithExpresionTrees(string propertyName, string val);
     }
 }

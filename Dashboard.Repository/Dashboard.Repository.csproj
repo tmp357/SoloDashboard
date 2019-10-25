@@ -77,8 +77,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="TestData\data-1570538698798.csv" />
     <None Include="TestData\expdata1.csv" />
+    <None Include="TestData\jobplan.csv" />
+    <None Include="TestData\parts.csv" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SoloDashboard.Data\SoloDashboard.Data.csproj">

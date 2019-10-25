@@ -1,16 +1,19 @@
-﻿using System;
+﻿using SoloDashboard.Models.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SoloDashboard.Entities.Models
 {
     public class Job
     {
         private string _jobCompletionStatus = "";
+
+        public Job()
+        {
+            jobparts = new List<JobPart>();
+            jobplan = new List<JobPlan>();
+        }
 
         [Display(Name = "Remaining Time")]
         public string remaingtime { get; set; }
@@ -73,7 +76,7 @@ namespace SoloDashboard.Entities.Models
                 {
                     _jobCompletionStatus = "bg-success";
                 }
-                else if (ccpromisedate.Value.ToShortDateString() == DateTime.Now.ToShortDateString())
+                else if (ccpromisedate != null && ccpromisedate.Value.ToShortDateString() == DateTime.Now.ToShortDateString())
                 {
                     _jobCompletionStatus = "bg-info";
                 }
@@ -89,5 +92,10 @@ namespace SoloDashboard.Entities.Models
                 return _jobCompletionStatus;
             }           
         }
+
+        public List<JobPart> jobparts { get; set; }
+        public List<JobPlan> jobplan { get; set; }
+
+
     }
 }

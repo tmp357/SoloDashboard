@@ -24,8 +24,8 @@ namespace SoloDashboard.Web.Controllers
 
         public ActionResult DashboardFiltered(string colummParam, string SearchColumn, string reportTitle = "All PrintFlow Schedule")
         {
-            var exp = uow.DbContextJobsTestData.GetDynamicQueryWithExpresionTrees(SearchColumn, colummParam);
-            var job = uow.DbContextJobsTestData.Find(exp);
+            var exp = uow.DbContextJobs.GetDynamicQueryWithExpresionTrees(SearchColumn, colummParam);
+            var job = uow.DbContextJobs.Find(exp);
 
             ViewBag.Title = reportTitle;
             return View("Dashboard", job);

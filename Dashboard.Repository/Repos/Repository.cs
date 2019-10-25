@@ -24,5 +24,21 @@ namespace Dashboard.Repository.Repos
         {
             throw new NotImplementedException();
         }
+
+        public Expression<Func<T, bool>> GetDynamicQueryWithExpresionTrees(string propertyName, string val)
+        {
+            //x =>
+            var param = Expression.Parameter(typeof(T), "x");
+            //val ("Curry")
+            var valExpression = Expression.Constant(val, typeof(string));
+            //Field or Property Name
+            var column = Expression.PropertyOrField(param, propertyName);
+            //x.LastName == "Curry"
+            BinaryExpression body = Expression.Equal(column, valExpression);
+            //x => x.LastName == "Curry"
+            var final = Expression.Lambda<Func<T, bool>>(body, param);
+            //compiles the expression tree to a func delegate
+            return final;
+        }
     }
 }

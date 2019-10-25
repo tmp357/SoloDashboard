@@ -1,0 +1,19 @@
+﻿job	scheduledactivity	jcdescription	part	printflowform	startdate	enddate	name	previoustask	nexttask
+54079       	01000	Sheetfed Stock Cost           	01   	01	10/22/2019 AD	10/22/2019 AD	Process Complete                                  	null	59783
+54079       	null	Preflight                     	01   	00	null	null	Process Complete                                  	null	59810
+54079       	null	QC Proof Out                  	01   	00	null	null	Process Complete                                  	59809	59808
+54079       	null	Proof Approved                	01   	00	null	null	Process Complete                                  	59810	59786
+54079       	13010	Platemaking Queue             	01   	01-01	10/25/2019 AD	10/25/2019 AD	Process Ready                                     	59808	59783
+54079       	13005	Platemaking Queue             	02   	02-01	10/25/2019 AD	10/25/2019 AD	Process Ready                                     	59808	59790
+54079       	13005	Platemaking Queue             	04   	04-01	10/25/2019 AD	10/25/2019 AD	Process Ready                                     	59808	59799
+54079       	13010	Platemaking Queue             	03   	03-01	10/25/2019 AD	10/25/2019 AD	Process Ready                                     	59808	59794
+54079       	13005	Platemaking Queue             	02   	02-02	10/25/2019 AD	10/25/2019 AD	Process Ready                                     	59808	59807
+54079       	32010	Run Komori | LED Queue        	01   	01-01	10/26/2019 AD	10/26/2019 AD	Process Ready                                     	59786	59787
+54079       	41010	Run Komori Web Queue          	02   	02-02	10/25/2019 AD	10/25/2019 AD	Process Ready                                     	59806	59784
+54079       	41010	Run Komori Web Queue          	03   	03-01	10/25/2019 AD	10/25/2019 AD	Process Ready                                     	59796	59784
+54079       	41010	Run Komori Web Queue          	02   	02-01	10/25/2019 AD	10/25/2019 AD	Process Ready                                     	59792	59784
+54079       	41010	Run Komori Web Queue          	04   	04-01	10/25/2019 AD	10/25/2019 AD	Process Ready                                     	59801	59804
+54079       	60505	Run Cutter Queue              	04   	04	10/31/2019 AD	10/31/2019 AD	Process Ready                                     	59799	59803
+54079       	60505	Run Cutter Queue              	01   	01	10/31/2019 AD	10/31/2019 AD	Process Ready                                     	59783	59784
+54079       	62505	Run Folder Queue              	04   	04-01	11/1/2019 AD	11/1/2019 AD	Process Ready                                     	59804	59784
+54079       	65005	Run Stitcher Queue            	01   	ZZ	11/4/2019 AD	11/4/2019 AD	Process Ready                                     	59787	null
